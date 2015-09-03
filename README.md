@@ -5,18 +5,18 @@ The projects is Maven based, so the whole project can be opened and its unit tes
 followings:
 	
 	File ->
-		Import -> Existing Maven projects -> Root Direcyory: [parent folder]/NicolaeCaralicea
+		Import -> Existing Maven projects -> Root Direcyory: [folder]
 		
 		
 	    Note: The Eclipse environment should have the maven plugin already installed.
 	
 ### Running the test using Maven command line
 
-	/[parent folder]/NicolaeCaralicea$ mvn test
+	$ mvn test
 
 ### Generate Javadoc
     
-	/[parent folder]/NicolaeCaralicea$mvn javadoc:javadoc
+	$mvn javadoc:javadoc
 
 ## Developed and tested using the following configuration 
 
@@ -27,4 +27,3 @@ followings:
 		(I also tested it from Scala IDE build of Eclipse SDK Build id: 3.0.4-2.11-20140723-2253-Typesafe)
 	2.  Java version: 1.7.0_67, vendor: Oracle Corporation
 	3.  Apache Maven 3.2.3
-
