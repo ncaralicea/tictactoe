@@ -1,3 +1,34 @@
+## Some code
+
+		final IBoardGame<TicTacToeMove, TicTacToePlayer> ticTacTocGame = new TicTacToeGame();
+		final String playerIDisplayName = "X";
+		final String playerIIDisplayName = "O";
+		final TicTacToePlayer playerI = new TicTacToePlayer(playerIDisplayName);
+		final TicTacToePlayer playerII = new TicTacToePlayer(playerIIDisplayName);
+		ticTacTocGame.setGamePlayers(new TicTacToePlayer[]{playerI, playerII});
+		TicTacToePlayer[][] expectedBoardInteractionSnapshot = new TicTacToePlayer[][]{
+			new TicTacToePlayer[]{playerI,		null,		playerII},
+			new TicTacToePlayer[]{playerI,		playerII,	null},
+			new TicTacToePlayer[]{playerI, 		playerII,	playerI}			
+		};
+		
+		ticTacTocGame.start();
+		ticTacTocGame.makeMove(new TicTacToeMove(0, 0));
+		ticTacTocGame.makeMove(new TicTacToeMove(1, 1));
+		ticTacTocGame.makeMove(new TicTacToeMove(2, 2));
+		ticTacTocGame.makeMove(new TicTacToeMove(0, 2));
+		ticTacTocGame.makeMove(new TicTacToeMove(2, 0));
+		ticTacTocGame.makeMove(new TicTacToeMove(2, 1));
+		ticTacTocGame.makeMove(new TicTacToeMove(1, 0));
+		
+		this.displayBoardPlayerInteractionSnapshot(ticTacTocGame);
+		final TicTacToePlayer[][] actualBoardInteractionSnapshot = ticTacTocGame.getPlayerInteractionSnapshotBoard();
+		
+		Assert.assertFalse(ticTacTocGame.isGameDraw());
+		Assert.assertTrue(ticTacTocGame.existWinner());
+		Assert.assertEquals(ticTacTocGame.getWinner().getDisplayName(), playerIDisplayName);
+		Assert.assertArrayEquals(actualBoardInteractionSnapshot, expectedBoardInteractionSnapshot);		
+
 ## How to open the project and run its unit tests
 ### Using Eclipse IDE
 
